@@ -1,5 +1,9 @@
 const collateralData = require('../../data/collateral');
 const loanData = require('../../data/loan');
+const Fsi = require('../../fsi-api-jdk/index');
+
+const AfricasTalking = Fsi(process.env.SANBOX_KEY, 'AfricasTalking');
+const SterlingBank = Fsi(process.env.SANBOX_KEY, 'SterlingBank');
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
@@ -10,8 +14,6 @@ module.exports = {
         const {collateralId, interestRate, tenure, requestingBank} = req.body;
 
         const loanValue = 0.8 * collateralData[collateralId].cropValue;
-
-        const OTP = getRndInteger(100000, 999999);
 
         const loanId = loanData.push({collateralId, loanValue, requestingBank}) - 1;
 
@@ -26,8 +28,26 @@ module.exports = {
         const collateral = collateralData[loan.collateralId];
         const farmerPhoneNumber = collateral.farmerPhoneNumber;
 
-        
-        res.status(200).json(collateralData[collateralId]);
+        const OTP = getRndInteger(100000, 999999);
+
+        const body = {
+            username : "sandbox",
+            to : farmerPhoneNumber,
+            message: `OTP to confirm loan booking ${OTP}`
+        };
+        const header = {"Content-type" : "application/json"}
+        AfricasTalking.sendSms(body, header)
+        .then((data)=>{
+            console.log(data);
+            res.status(200).json({
+                collateralData: collateralData[loan.collateralId],
+                data
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json({error});
+        });
     },
 
     getSingleLoan(req, res){

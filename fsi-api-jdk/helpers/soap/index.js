@@ -116,4 +116,4 @@ var apiCall = function (url, method, secretKey, body, headers) { return __awaite
         }
     });
 }); };
-exports.default = apiCall;
+module.exports = apiCall;

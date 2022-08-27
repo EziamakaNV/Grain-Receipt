@@ -11,7 +11,7 @@ var SterlingBank = /** @class */ (function () {
     }
     return SterlingBank;
 }());
-exports.default = SterlingBank;
+module.exports = SterlingBank;
 //
 // class SterlingBank {
 //

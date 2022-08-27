@@ -59,4 +59,4 @@ var FCMB = /** @class */ (function () {
     }
     return FCMB;
 }());
-exports.default = FCMB;
+module.exports = FCMB;

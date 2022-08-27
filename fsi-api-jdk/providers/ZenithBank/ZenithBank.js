@@ -34,4 +34,4 @@ var ZenithBank = /** @class */ (function () {
     }
     return ZenithBank;
 }());
-exports.default = ZenithBank;
+module.exports = ZenithBank;

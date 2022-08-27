@@ -47,4 +47,4 @@ var AfricasTalking = /** @class */ (function () {
     }
     return AfricasTalking;
 }());
-exports.default = AfricasTalking;
+module.exports = AfricasTalking;

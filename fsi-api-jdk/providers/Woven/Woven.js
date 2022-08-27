@@ -46,4 +46,4 @@ var Woven = /** @class */ (function () {
     }
     return Woven;
 }());
-exports.default = Woven;
+module.exports = Woven;

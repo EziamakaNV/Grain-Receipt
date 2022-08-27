@@ -37,4 +37,4 @@ var EcoBank = /** @class */ (function () {
     }
     return EcoBank;
 }());
-exports.default = EcoBank;
+module.exports = EcoBank;
