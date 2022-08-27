@@ -73,6 +73,7 @@ module.exports = {
             let accountName = '';
             const nameEnquiryBody = {
                 Referenceid: '01',
+                RequestType: '01',
                 Translocation: '01',
                 ToAccount: '12345678',
                 destinationbankcode: '0001',
@@ -82,40 +83,44 @@ module.exports = {
                 "Ocp-Apim-Trace": true,
                 ipval: 0,
                 Appid: 69,
-                Authorization: "Bearer sdkkfllroodmmdl"
+                "sandbox-key": process.env.SANBOX_KEY,
+                "Content-Type": "application/json"
             };
 
             SterlingBank.interbankNameEnquiry(nameEnquiryBody, nameEnquiryHeader)
             .then(data => {
+                console.log('Name Enquiry >>>>>>>>>>>>>');
                 console.log(data);
                 // Carry our transfer
                 accountName = data.data.AccountNumber;
 
                 const interBankTransferBody = {
-                    Referenceid: "0101",
-                    RequestType: "01",
-                    Translocation: "0101",
-                    SessionID: "01",
-                    FromAccount: "01",
-                    ToAccount: "01",
-                    Amount: loan.loanValue,
-                    DestinationBankCode: collateral.bankCode,
-                    NEResponse: "01",
-                    BenefiName: "01",
-                    PaymentReference: "01",
-                    OriginatorAccountName: "01",
-                    translocation: "01"
+                    "Referenceid": "0101",
+                    "RequestType": "01",
+                    "Translocation": "0101",
+                    "SessionID": "01",
+                    "FromAccount": "2030203020",
+                    "ToAccount": "01",
+                    "Amount": "65",
+                    "DestinationBankCode": "420",
+                    "NEResponse": "01",
+                    "BenefiName": "01",
+                    "PaymentReference": "01",
+                    "OriginatorAccountName": "01",
+                    "translocation": "01"
                 };
                 const interBankTransferHeader = {
                     "Ocp-Apim-Subscription-Key": 't',
                     "Ocp-Apim-Trace": true,
                     ipval: 0,
                     Appid: 69,
-                    Authorization: "Bearer sdkkfllroodmmdl"
+                    "sandbox-key": process.env.SANBOX_KEY,
+                    "Content-Type": "application/json"
                 };
 
                 SterlingBank.interbankTransfer(interBankTransferBody, interBankTransferHeader)
                 .then(data => {
+                    console.log('Interbank Transer >>>>>>>>>>>>>');
                     console.log(data);
                     res.status(200).json({
                         disbursedTo: accountName,

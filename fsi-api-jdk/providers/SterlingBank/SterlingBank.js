@@ -7,6 +7,9 @@ var SterlingBank = /** @class */ (function () {
         this.interbankNameEnquiry = function (body, header) {
             return (0, index_1.interbankNameEnquiry)(_this.secretKey, body, header);
         };
+        this.interbankTransfer = function (body, header) {
+            return (0, index_1.interbankTransfer)(_this.secretKey, body, header);
+        };
         this.secretKey = key;
     }
     return SterlingBank;
