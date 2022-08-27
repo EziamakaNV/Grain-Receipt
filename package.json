@@ -1,0 +1,24 @@
+{
+  "name": "grain-receipt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EziamakaNV/Grain-Receipt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EziamakaNV/Grain-Receipt/issues"
+  },
+  "homepage": "https://github.com/EziamakaNV/Grain-Receipt#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  }
+}
