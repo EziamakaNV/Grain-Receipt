@@ -7,7 +7,9 @@ function getRndInteger(min, max) {
 module.exports = {
     bookCollateral(req, res){ // calculate price and save 
         const {quantity, cropType, condition,
-            farmerPhoneNumber, farmerName, businessName} = req.body;
+            farmerPhoneNumber, farmerName, businessName,
+            bankCode, accountNumber
+        } = req.body;
 
         const date = new Date();
         let multiplier = 1;
@@ -37,7 +39,9 @@ module.exports = {
             issuanceDate: date.toString(),
             quantity,
             farmerName,
-            businessName
+            businessName,
+            bankCode,
+            accountNumber
         }
 
         res.status(200).json({
