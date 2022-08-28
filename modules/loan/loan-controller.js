@@ -41,7 +41,10 @@ module.exports = {
             loan.OTP = OTP;
             console.log(loanData[loanId].OTP);
             res.status(200).json({
-                collateralData: collateralData[loan.collateralId],
+                collateralData: {
+                    id: loan.collateralId,
+                    ...collateralData[loan.collateralId]
+                },
             });
         })
         .catch((error) => {

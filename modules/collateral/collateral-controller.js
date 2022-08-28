@@ -59,7 +59,7 @@ module.exports = {
     getAllCollateral(req, res){
         const result = [];
         for(const collateralId in collateralData){
-            result.push(collateralData[collateralId]);
+            result.push({collateralId, ...collateralData[collateralId]});
         }
         console.log(result);
         res.status(200).json({result});
