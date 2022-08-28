@@ -16,3 +16,9 @@ The postman collection has been published at:
 4.) `Confirm Loan Booking`: Confirm a loan booking through the Confirm Loan Bookin endpoint. An OTP is sent to the owner of the collateral after this
 
 5.) `Verify Loan Booking`: Verify the loan booking by providing the OTP sent to the collateral owner's phone number. This is done via the Verify Loan disbursement OTP endpoint
+
+
+## `FSI Sandbox APIs Used`
+1. Africas Talking Send SMS
+2. Sterling Bank Name Enquiry
+3. Sterling Bank Interbank Transfer
