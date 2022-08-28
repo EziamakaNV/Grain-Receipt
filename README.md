@@ -4,7 +4,7 @@ This collection contains the endpoints required to power Grain-Receipt. It handl
 
 ## `Usage Or Flow`
 
-The postman collection has been published at:
+The postman collection has been published and can be tested at:
 - [Postman Collection](https://documenter.getpostman.com/view/5211679/VUxKSp2w)
 
 1.) `Create a collateral` : Create a collateral Id by using the Post a Collateral endpoint. An important property in the response body is the collateralId that's returned
